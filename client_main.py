@@ -28,18 +28,17 @@ def client_ui(host: str = 'localhost', port: int = 8000, path: str = 'ass2') -> 
             get_data(client)
 
 
-
-def input_sanitizer(in_str: str, max: int, min: int = 0) -> Optional[int]:
+def input_sanitizer(in_str: str, range_max: int, range_min: int = 0) -> Optional[int]:
     try:
         result = int(in_str)
     except ValueError:
         print("Please make sure you input a number.")
         return
 
-    if result in range(min, max + 1):
+    if result in range(range_min, range_max + 1):
         return result
     else:
-        print(f"Please make sure your choice is in the range of {min} to {max + 1}.")
+        print(f"Please make sure your choice is in the range of {range_min} to {range_max}.")
 
 
 def add_data(client: ServerProxy) -> None:
